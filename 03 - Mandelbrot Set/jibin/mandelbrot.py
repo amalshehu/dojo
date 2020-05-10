@@ -3,6 +3,7 @@ class Mandelbrot:
     def __init__(self, plane_low: complex, plane_high: complex):
         self.plane_low = plane_low
         self.plane_high = plane_high
+        self.resolution = (1, 1)
 
     def map_plane(self, window_size: tuple, window_low: tuple, window_high: tuple):
 
@@ -21,3 +22,11 @@ class Mandelbrot:
             plane_real_low + real_low, plane_imag_low + imag_low)
         self.plane_high = complex(
             plane_real_low + real_high, plane_imag_low + imag_high)
+
+    def set_resolution(self, window_size: tuple):
+        width_resolution = (self.plane_high.real -
+                            self.plane_low.real) / window_size[0]
+        height_resolution = (self.plane_high.imag -
+                             self.plane_low.imag) / window_size[1]
+
+        self.resolution = (width_resolution, height_resolution)
