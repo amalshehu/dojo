@@ -67,8 +67,9 @@ class Mandelbrot:
 
     def find_mandel(self):
 
-        reals = np.arange(self.plane_low.real, self.plane_high.real, self.resolution[0])
-        imags = np.arange(self.plane_low.imag, self.plane_high.imag, self.resolution[1])
-        plane = self.make_complex(np.fromiter(product(reals, imags), dtype='i,i'))
+        reals = np.arange(self.plane_low.real, self.plane_high.real, self.resolution[0], dtype='d')
+        imags = np.arange(self.plane_low.imag, self.plane_high.imag, self.resolution[1], dtype='d')
+        plane = self.make_complex(np.fromiter(product(reals, imags), dtype='d,d'))
 
-        return(self.mandel_elem(plane))
+        return self.mandel_elem(plane)
+        
