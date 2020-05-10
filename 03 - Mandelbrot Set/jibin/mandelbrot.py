@@ -34,3 +34,9 @@ class Mandelbrot:
     @staticmethod
     def tends_inf(point: complex):
         return abs(point.real) > 1 or abs(point.imag) > 1
+
+
+    @staticmethod
+    def equ(z, c: complex):
+        return z ** 2 + c
+        
