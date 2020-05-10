@@ -31,9 +31,9 @@ class TestMandelbrot(unittest.TestCase):
 
         self.assertEqual(new_z, self.mandelbrot.equ(z, c))
 
-    def test_mandel_elem(self):
-        self.assertEqual(self.mandelbrot.mandel_elem(complex(0,-1)), True)
-        self.assertEqual(self.mandelbrot.mandel_elem(complex(2,-1)), False)
+    def test__mandel_elem(self):
+        self.assertEqual(self.mandelbrot._mandel_elem(complex(0,-1)), True)
+        self.assertEqual(self.mandelbrot._mandel_elem(complex(2,-1)), False)
 
 if __name__ == '__main__':
     unittest.main()
