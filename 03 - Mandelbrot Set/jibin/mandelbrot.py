@@ -1,6 +1,6 @@
 class Mandelbrot:
 
-    def __init__(self, plane_low, plane_high):
+    def __init__(self, plane_low: complex, plane_high: complex):
         self.plane_low = plane_low
         self.plane_high = plane_high
 
@@ -17,5 +17,7 @@ class Mandelbrot:
         real_high = (window_high[0]*plane_width) / window_size[0]
         imag_high = (window_high[1]*plane_height) / window_size[1]
 
-        self.plane_low = complex(plane_real_low + real_low, plane_imag_low + imag_low)
-        self.plane_high = complex(plane_real_low + real_high, plane_imag_low + imag_high)
+        self.plane_low = complex(
+            plane_real_low + real_low, plane_imag_low + imag_low)
+        self.plane_high = complex(
+            plane_real_low + real_high, plane_imag_low + imag_high)
