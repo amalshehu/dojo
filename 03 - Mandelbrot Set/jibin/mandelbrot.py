@@ -1,5 +1,5 @@
 import numpy as np
-
+from itertools import product
 
 class Mandelbrot:
 
@@ -7,6 +7,8 @@ class Mandelbrot:
         self.plane_low = plane_low
         self.plane_high = plane_high
         self.resolution = (1, 1)
+        self.make_complex = np.vectorize(Mandelbrot._make_complex)
+        self.mandel_elem = np.vectorize(Mandelbrot._mandel_elem)
 
     def map_plane(self, window_size: tuple, window_low: tuple, window_high: tuple):
 
@@ -43,7 +45,7 @@ class Mandelbrot:
         return z ** 2 + c
 
     @staticmethod
-    def mandel_elem(point: complex):
+    def _mandel_elem(point: complex):
         memoized = []
         z = complex(0, 0)
         for _ in range(100):
@@ -59,3 +61,14 @@ class Mandelbrot:
         else:
             return True
 
+    @staticmethod
+    def _make_complex(point: tuple):
+        return(complex(*point))
+
+    def find_mandel(self):
+
+        reals = np.arange(self.plane_low.real, self.plane_high.real, self.resolution[0])
+        imags = np.arange(self.plane_low.imag, self.plane_high.imag, self.resolution[1])
+        plane = self.make_complex(np.fromiter(product(reals, imags), dtype='i,i'))
+
+        return(self.mandel_elem(plane))
