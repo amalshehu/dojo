@@ -19,6 +19,9 @@ class TestMandelbrot(unittest.TestCase):
         self.mandelbrot.set_resolution((400,500))
         self.assertEqual(self.mandelbrot.resolution, (0.0125,0.01))
 
+    def test_tends_inf(self):
+        self.assertEqual(self.mandelbrot.tends_inf(complex(0, 1)), False)
+        self.assertEqual(self.mandelbrot.tends_inf(complex(0, 2)), True)
 
 if __name__ == '__main__':
     unittest.main()
