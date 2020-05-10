@@ -31,5 +31,6 @@ class Mandelbrot:
 
         self.resolution = (width_resolution, height_resolution)
 
-    def tends_inf(self, point: complex):
+    def tends_inf(point: complex):
         return abs(point.real) > 1 or abs(point.imag) > 1
+
