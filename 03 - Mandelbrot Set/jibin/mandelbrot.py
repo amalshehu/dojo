@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Mandelbrot:
 
     def __init__(self, plane_low: complex, plane_high: complex):
@@ -35,8 +38,24 @@ class Mandelbrot:
     def tends_inf(point: complex):
         return abs(point.real) > 1 or abs(point.imag) > 1
 
-
     @staticmethod
     def equ(z, c: complex):
         return z ** 2 + c
-        
+
+    @staticmethod
+    def mandel_elem(point: complex):
+        memoized = []
+        z = complex(0, 0)
+        for _ in range(100):
+            z = Mandelbrot.equ(z, point)
+
+            if Mandelbrot.tends_inf(z):
+                return False
+
+            if z in memoized:
+                return True
+            else:
+                memoized.append(z)
+        else:
+            return True
+
