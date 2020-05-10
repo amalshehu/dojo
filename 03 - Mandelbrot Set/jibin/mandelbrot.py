@@ -28,6 +28,8 @@ class Mandelbrot:
         self.plane_high = complex(
             plane_real_low + real_high, plane_imag_low + imag_high)
 
+        self.set_resolution(window_size)
+
     def set_resolution(self, window_size: tuple):
         width_resolution = (self.plane_high.real -
                             self.plane_low.real) / window_size[0]
@@ -66,7 +68,6 @@ class Mandelbrot:
         return(complex(*point))
 
     def find_mandel(self):
-
         reals = np.arange(self.plane_low.real, self.plane_high.real, self.resolution[0], dtype='d')
         imags = np.arange(self.plane_low.imag, self.plane_high.imag, self.resolution[1], dtype='d')
         plane = self.make_complex(np.fromiter(product(reals, imags), dtype='d,d'))
