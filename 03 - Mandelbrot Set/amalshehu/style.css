@@ -1,0 +1,18 @@
+body {
+  font-size: 1em;
+  margin: auto;
+  background-color: #daf7a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -200px;
+  display: block;
+  width: 1000px;
+}

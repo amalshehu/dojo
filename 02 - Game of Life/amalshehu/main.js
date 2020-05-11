@@ -7,7 +7,7 @@ const width = roundDim(canvasDiv.offsetWidth)
 const height = roundDim(canvasDiv.offsetHeight)
 
 // const [width, height] = [1000, 1000]
-const [rows, columns] = [roundDim(height / 5), roundDim(width / 5)]
+const [rows, columns] = [roundDim(height / 20), roundDim(width / 20)]
 const speed = 60
 const cellWidth = roundDim(width / columns)
 const cellHeight = roundDim(height / rows)
@@ -159,10 +159,10 @@ function makeAcron(x, y) {
 
 // Starting position with 4 acrons
 
-makeAcron(roundDim(rows / 4), roundDim(columns / 4))
-makeAcron(roundDim((3 * rows) / 4), roundDim((3 * columns) / 4))
-makeAcron(roundDim(rows / 4), roundDim((3 * columns) / 4))
-makeAcron(roundDim((3 * rows) / 4), roundDim(columns / 4))
+makeAcron(roundDim(rows / 2), roundDim(columns / 2))
+// makeAcron(roundDim((3 * rows) / 4), roundDim((3 * columns) / 4))
+// makeAcron(roundDim(rows / 4), roundDim((3 * columns) / 4))
+// makeAcron(roundDim((3 * rows) / 4), roundDim(columns / 4))
 
 function togglePlay() {
   isPaused = !isPaused
