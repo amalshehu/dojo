@@ -1,3 +1,4 @@
+# for 800 x 800 with 100 iterations for each point
 # v1-> 8.6 (for loops). v2 -> 5.8 (numpy with complex), v3 -> 8.5 (numpy with tuples), v4 -> (memoized with sets)
 # v5->3.1(without memoization)
 
@@ -56,10 +57,10 @@ class Mandelbrot:
             z = Mandelbrot.equ(z, point)
 
             if Mandelbrot.tends_inf(z):
-                return False
+                return 255
 
         else:
-            return True
+            return 0
 
     @staticmethod
     def _make_complex(point: tuple):
