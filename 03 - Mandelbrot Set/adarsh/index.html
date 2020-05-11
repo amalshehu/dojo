@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Mandelbrot Set</title>
+    <script src="lib/p5.min.js" type="text/javascript"></script>
+    <script src="src/sketch.js" type="text/javascript"></script>
+    <script src="src/mandelbrot.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="gameBox">
+      <div class="header">
+        <h1>Mandelbrot Set - Benoit Mandelbrot</h1>
+      </div>
+      <div class="info1">
+        <p>Its definition is credited to
+          <a href="https://en.wikipedia.org/wiki/Adrien_Douady" target="_blank">Adrien Douady</a>
+          who named it in tribute to the mathematician
+          <a href="https://en.wikipedia.org/wiki/Benoit_Mandelbrot" target="_blank">Benoit Mandelbrot</a>
+        </p>
+      </div>
+      <div class="info2">
+        <p>
+          <span id='text'>Click inside the image to Zoom</span>
+          <span id='text'>Double Click inside the image to Reset</span>
+        </p>
+      </div>
+      <div id="sketch-holder"></div>
+    </div>
+  </body>
+</html>
