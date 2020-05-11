@@ -1,7 +1,7 @@
 body {
   font-size: 1em;
   margin: auto;
-  background-color: #000000;
+  background-color: #daf7a6;
 }
 
 * {
@@ -12,6 +12,7 @@ canvas {
   padding-right: 0;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -200px;
   display: block;
-  width: 800px;
+  width: 1000px;
 }
