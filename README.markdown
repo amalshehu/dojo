@@ -2,6 +2,12 @@
 
 Collaborative coding challenges for fun & profit
 
+## Current Challenge: May 09 2020
+
+03 - Mandelbrot Set
+
+Deadline: 1800 IST, May 11 2020
+
 ## Instructions
 
 1. Fork project
@@ -15,14 +21,16 @@ Collaborative coding challenges for fun & profit
 | `username`              | Challenge              |
 | -------------           | ---------------------- |
 | [`@amalshehu`][as]      | `1`[`1`][1-02]         |
-| `asifmohd`              | `1`[`1`][2-02]         |
+| [`asifmohd`][am]        | `1`[`1`][2-02]         |
 | [`@adarsh`][ac]         | `1`[`1`][3-02]         |
 | [`@jikkujose`][jj]      | `0`[`0`][4-02]         |
 | [`@rakeshbs`][rbs]      | `0`[`1`][5-02]         |
-| `jibinmathew`           | `00`                   |
+| [`@jibinmathew`][jm]    | `00`                   |
 | [`@nikhilmohan`][cavoo] | `0`[`0`][7-02]         |
 | [`@jeswinsimon`][js]    | `0`[`0`][8-02]         |
 
+[jm]: https://github.com/jibinmathew69
+[am]: https://github.com/Asifm95
 [ac]: https://github.com/adarsh-why
 [as]: http://github.com/amalshehu
 [jj]: http://github.com/jikkujose
