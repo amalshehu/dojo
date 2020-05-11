@@ -1,30 +1,22 @@
 import { config } from "./config"
 
 export const mandlebrot = ([x, y], [cX, cY]) => {
-  const squareX = x * x - y * y
-  const squareY = 2 * x * y
-
-  return [squareX + cX, squareY + cY]
+  return [x * x - y * y + cX, 2 * x * y + cY]
 }
 
-export const iterate = ([cX, cY], n) => {
+export const willConverge = ([cX, cY], n = config.iterationCount) => {
   let x = 0,
-    y = 0
+    y = 0,
+    radiusSquare = 0
 
   for (let i = 0; i < n; i++) {
     ;[x, y] = mandlebrot([x, y], [cX, cY])
+    radiusSquare = x * x + y * y
+
+    if (radiusSquare > 4) {
+      return false
+    }
   }
 
-  return [x, y]
-}
-
-export const willConverge = ([x, y], n = config.iterationCount) => {
-  const [cX, cY] = iterate([x, y], n)
-  const radiusSquare = cX * cX + cY * cY
-
-  if (radiusSquare < 4) {
-    return true
-  } else {
-    return false
-  }
+  return true
 }

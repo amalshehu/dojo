@@ -5,6 +5,7 @@
   "author": "Jikku Jose",
   "license": "MIT",
   "scripts": {
+    "deploy": "surge ./build",
     "build": "parcel build --no-source-maps ./src/index.html -d build",
     "test": "jest --watch",
     "start": "parcel ./src/index.html"
