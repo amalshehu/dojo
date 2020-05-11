@@ -1,52 +1,44 @@
 const WIDTH = 600
 const HEIGHT = 600
 const cellSize = 1
-
-const app = new PIXI.Application({
+const config = {
   width: WIDTH,
   height: HEIGHT,
   backgroundColor: PIXI.utils.string2hex("#363636"),
   resolution: window.devicePixelRatio || 1,
-})
+}
+const app = new PIXI.Application(config)
+const container = new PIXI.Container()
 
 document.body.appendChild(app.view)
-const container = new PIXI.Container()
-app.stage.addChild(container)
 
 for (let i = 0; i < WIDTH ** 2; i++) {
-  const g = new PIXI.Graphics()
   const x = (i % WIDTH) * cellSize
   const y = Math.floor(i / HEIGHT) * cellSize
   const color = pickMandalbrotColor(x, y)
-  if (color !== "#363636") {
-    g.beginFill(PIXI.utils.string2hex(color))
-    g.drawRect(x, y, cellSize, cellSize)
-    g.endFill()
-    container.addChild(g)
-  }
+  if (color !== "#363636") fillPixel(color, x, y)
 }
 
-function distanceSquare([a, b] = c) {
-  return a ** 2 + b ** 2
-}
-
-function complexSquare([a, b] = z) {
-  return [a ** 2 - b ** 2, 2 * a * b]
+function fillPixel(color, x, y) {
+  const graphics = new PIXI.Graphics()
+    .beginFill(PIXI.utils.string2hex(color))
+    .drawRect(x, y, cellSize, cellSize)
+    .endFill()
+  container.addChild(graphics)
+  app.stage.addChild(container)
 }
 
 function nextIteration(z, [c1, c2] = c) {
-  const [x, y] = complexSquare(z)
+  const [x, y] = z.reduce((a, b) => [a ** 2 - b ** 2, 2 * a * b])
   return [x + c1, y + c2]
 }
 
 function belongsToMandelbrot(x, y) {
   let z = [0, 0]
   const c = [x, y]
-  for (let i = 0; i < 20; i++) {
-    if (distanceSquare(z) > 4) {
-      return false
-    }
-    z = nextIteration(z, c)
+  for (let i = 0; i < 30; i++) {
+    if (z.reduce((a, b) => a ** 2 + b ** 2) > 4) return false
+    z = nextIteration(z, c) //  z(n+1) = z(n)^2+ c
   }
   return true
 }
