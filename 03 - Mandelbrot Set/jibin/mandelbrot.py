@@ -1,4 +1,5 @@
-# v1-> 8 (for loops). v2 -> 5.8 (numpy with complex), v3 -> 8.5 (numpy with tuples), v4 -> (memoized with sets)
+# v1-> 8.6 (for loops). v2 -> 5.8 (numpy with complex), v3 -> 8.5 (numpy with tuples), v4 -> (memoized with sets)
+# v5->3.1(without memoization)
 
 import numpy as np
 from itertools import product
@@ -50,7 +51,6 @@ class Mandelbrot:
 
     @staticmethod
     def _mandel_elem(point: complex):
-        memoized = set()
         z = complex(0, 0)
         for _ in range(100):
             z = Mandelbrot.equ(z, point)
@@ -58,10 +58,6 @@ class Mandelbrot:
             if Mandelbrot.tends_inf(z):
                 return False
 
-            if z in memoized:
-                return True
-            else:
-                memoized.add(z)
         else:
             return True
 
