@@ -3,23 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.4/pixi.js"
+      integrity="sha256-dxw0goeCoHyvuGVYwRmZ4KLRtm3REKj15rY+CBJ2VD0="
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <title>
       Mandelbrot
     </title>
   </head>
   <body>
-    <main>
-      <header class="item header">
-        <h2>Mandelbrot</h2>
-      </header>
-      <div class="item stats">
-        <h2>FPS<span id="frameRate">0</span></h2>
-      </div>
-      <div id="main" class="item main"></div>
-      <!-- <div class="item score">
-  </div> -->
-    </main>
-    <script src="./main.js"></script>
+    <script src="./mandelbrot.js" type="module"></script>
   </body>
 </html>
