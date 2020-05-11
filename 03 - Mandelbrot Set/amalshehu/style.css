@@ -1,9 +1,17 @@
 body {
   font-size: 1em;
   margin: auto;
-  background-color: #363636;
+  background-color: #000000;
 }
 
 * {
   box-sizing: border-box;
+}
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 800px;
 }
