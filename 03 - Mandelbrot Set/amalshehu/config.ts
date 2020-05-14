@@ -9,7 +9,7 @@ export const config = {
   width: WIDTH,
   height: HEIGHT,
   backgroundColor: utils.string2hex("#DAF7A6"),
-  antialias: true,
-  resolution: window.devicePixelRatio || 1,
-  preserveDrawingBuffer: true,
+  // antialias: true,
+  // resolution: window.devicePixelRatio || 1,
+  // preserveDrawingBuffer: true,
 }
