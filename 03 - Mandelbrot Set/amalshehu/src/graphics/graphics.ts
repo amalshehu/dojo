@@ -1,31 +1,11 @@
 import { config, WIDTH, HEIGHT, scaleFactor, cellSize } from "../../config"
-import {
-  Graphics,
-  utils,
-  Application,
-  Container,
-  Text,
-  TextStyle,
-} from "pixi.js"
+import { Graphics, utils, Application, Container } from "pixi.js"
 
 const app = new Application(config)
 const container = new Container()
 const { renderer, stage } = app
-let loopCount = 0
-initGraphics()
-// const loopText = addText()
 
-function addText() {
-  const style = new TextStyle({
-    fill: ["#ffffff", "#00ff99"],
-    stroke: "#4a1850",
-  })
-  const text = new Text(`Loop: ${loopCount}`, style)
-  text.x = 50
-  text.y = 200
-  app.stage.addChild(text)
-  return text
-}
+initGraphics()
 
 function initGraphics() {
   document.body.appendChild(app.view)
@@ -42,5 +22,4 @@ export function fillPixel(color, x, y) {
     .drawRect(x, y, cellSize, cellSize)
     .endFill()
   container.addChild(graphics)
-  //   loopText.text = `Loop: ${loopCount++}`
 }
