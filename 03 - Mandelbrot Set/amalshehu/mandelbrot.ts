@@ -17,7 +17,7 @@ function belongsToMandelbrot(x, y) {
   let z = [0, 0]
   const c = [x, y]
   for (let i = 0; i < loopLimit; i++) {
-    if (z.reduce((a, b) => a ** 2 + b ** 2) > 4) return false
+    if (z.reduce((a, b) => a ** 2 + b ** 2) >= 4) return false
     z = nextIteration(z, c) //  z(n+1) = z(n)^2+ c
   }
   return true
