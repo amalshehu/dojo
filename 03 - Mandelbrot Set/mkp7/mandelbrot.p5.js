@@ -11,15 +11,11 @@ function mandelbrot(z, c, i) {
   return mandelbrot(nz, c, i - 1)
 }
 
-const width = 600
+const width = 800
 let B = 2
 
-let xcenter = 0
-let ycenter = 0
-
-let minCover = Math.min(B - Math.abs(xcenter), B - Math.abs(ycenter))
-let start_points = [xcenter - minCover, ycenter + minCover]
-let step = minCover / (width / 2)
+let start_points = [-B, B]
+let step = B / (width / 2)
 
 function setup() {
   createCanvas(width, width)
@@ -27,9 +23,7 @@ function setup() {
 }
 
 function draw() {
-  background('#1a1a1a')
-
-  console.log(minCover, start_points, step)
+  background('#000000')
 
   scale(1)
   for (let i = 0; i < width; i++) {
@@ -46,49 +40,21 @@ function draw() {
         stroke(255, 255, 255)
       }
       point(i, j)
-
-      // stroke(0, 0, 0, wg * 5 * 2.55)
-      // if (ds <= 4) {
-      //   stroke(255, 255, 255)
-      // }
-      // point(i, j)
     }
   }
 }
 
 function mousePressed() {
   if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < width) {
-    B = B / 2
-    xcenter = start_points[0] + step * mouseX
-    ycenter = start_points[1] - step * mouseY
+    const x = start_points[0] + step * mouseX
+    const y = start_points[1] - step * mouseY
 
-    minCover = Math.min(B - Math.abs(xcenter), B - Math.abs(ycenter))
-    start_points = [xcenter - minCover, ycenter + minCover]
-    step = minCover / (width / 2)
+    B = B * 0.9
+    step = B / (width / 2)
+
+    start_points[0] = x - step * mouseX
+    start_points[1] = y + step * mouseY
 
     redraw()
   }
 }
-
-function app() {
-  const boundaryInp = document.getElementById('boundary')
-  const xcenterInp = document.getElementById('xcenter')
-  const ycenterInp = document.getElementById('ycenter')
-
-  const updateAndRedraw = (e) => {
-    B = parseFloat(boundaryInp.value)
-    xcenter = parseFloat(xcenterInp.value)
-    ycenter = parseFloat(ycenterInp.value)
-
-    minCover = Math.min(B - Math.abs(xcenter), B - Math.abs(ycenter))
-    start_points = [xcenter - minCover, ycenter + minCover]
-    step = minCover / (width / 2)
-    redraw()
-  }
-
-  boundaryInp.addEventListener('change', updateAndRedraw)
-  xcenterInp.addEventListener('change', updateAndRedraw)
-  ycenterInp.addEventListener('change', updateAndRedraw)
-}
-
-app()
