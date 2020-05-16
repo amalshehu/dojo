@@ -45,3 +45,16 @@ def find_mandel3(resolution):
         process.join()
 
     return np.ctypeslib.as_array(shared_array)
+
+
+def find_mandel4(resolution):
+
+    size_x = size[0]//2
+    
+    partial_row_calc = partial(row_calc, size_x=size_x, resolution=resolution)
+
+    pool = multiprocessing.Pool()
+    pool.map(partial_row_calc, range(size[0]))
+    pool.close()
+    pool.join()
+    return np.ctypeslib.as_array(shared_array)
