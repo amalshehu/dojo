@@ -1,5 +1,6 @@
 import pygame
 from mandelbrot_2 import find_mandel, find_mandel2
+from mandelbrot_3 import find_mandel3, find_mandel4
 
 width = 800
 height = 800
@@ -12,13 +13,28 @@ def display_mandel_plane(plane):
 
 active = True
 import time
-start = time.process_time()
-plane = find_mandel2(4 / 800)
-print(time.process_time() - start)
+
 
 start = time.process_time()
 plane = find_mandel(4 / 800)
 print(time.process_time() - start)
+
+start = time.process_time()
+plane = find_mandel2(4 / 800)
+print(time.process_time() - start)
+
+
+start = time.process_time()
+plane = find_mandel3(4 / 800)
+print(time.process_time() - start)
+
+
+start = time.process_time()
+plane = find_mandel4(4 / 800)
+print(time.process_time() - start)
+
+
+
 
 mandel_plane = display_mandel_plane(plane)
 

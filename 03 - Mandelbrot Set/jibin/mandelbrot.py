@@ -1,6 +1,6 @@
 # for 800 x 800 with 100 iterations for each point
-# v1-> 8.6 (for loops). v2 -> 5.8 (numpy with complex), v3 -> 8.5 (numpy with tuples), v4 -> (memoized with sets)
-# v5->3.1(without memoization)
+# v1-> 8.6 (for loops). v2 -> 5.8 (numpy with complex), v3 -> 8.5 (numpy with tuples), v4 5.0 -> (memoized with sets)
+# v5->3.1(without memoization), v6 -> 1.0(multiprocessing with process), v7 -> 0.02(multiprocessing with process)
 
 import numpy as np
 from itertools import product
