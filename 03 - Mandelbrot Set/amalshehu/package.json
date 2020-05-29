@@ -1,10 +1,18 @@
 {
   "devDependencies": {
     "@types/pixi.js": "^5.0.0",
+    "assemblyscript": "^0.9.4",
     "pixi.js": "^5.2.4",
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@assemblyscript/loader": "^0.9.4",
     "js": "^0.1.0"
+  },
+  "scripts": {
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --validate --sourceMap --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "test": "node tests"
   }
 }
