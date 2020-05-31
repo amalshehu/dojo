@@ -14,7 +14,6 @@ const cellHeight = roundDim(height / rows)
 let isPaused = false
 let generation = 0
 const state = generateGrid(rows, columns)
-
 const colorMap = { alive: 255, dead: 0 }
 
 function deadOrAlive() {
@@ -53,7 +52,7 @@ function generateCell(c, x, y, i, j, s) {
 }
 
 function drawCell(data) {
-  const { prevColor, color, location, gridIdx, shape, strength } = data
+  const { prevColor, color, location, shape } = data
   if (prevColor !== color) {
     fill(colorMap[color])
     window[shape](location.x, location.y, cellWidth, cellHeight, cellWidth / 10)
@@ -63,9 +62,9 @@ function drawCell(data) {
 //row
 
 function generateRow(y, n, idx) {
-  return Array.from({ length: n }, (x, i) => i).map((j) => {
-    return generateCell(deadOrAlive(), cellWidth * j, y, idx, j, "rect")
-  })
+  return Array.from({ length: n }, (x, i) => i).map((j) =>
+    generateCell(deadOrAlive(), cellWidth * j, y, idx, j, "rect")
+  )
 }
 
 function drawRow(data) {
