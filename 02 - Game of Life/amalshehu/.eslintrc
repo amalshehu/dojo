@@ -10,9 +10,6 @@
         "experimentalObjectRestSpread": true
       },
       "sourceType": "module"
-    },
-    "rules": {
-      "semi": 0
     }
   }
   
