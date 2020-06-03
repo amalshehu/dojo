@@ -1,5 +1,5 @@
 /dist
 .cache
 /build
+/.firebase
 firebase.json
-.firebase

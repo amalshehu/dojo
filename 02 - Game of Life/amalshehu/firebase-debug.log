@@ -1,0 +1,25 @@
+[debug] [2020-06-02T22:16:26.369Z] ----------------------------------------------------------------------
+[debug] [2020-06-02T22:16:26.371Z] Command:       /usr/local/bin/firebase /Users/amalshehu/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase --project game-of-life-2e998 serve
+[debug] [2020-06-02T22:16:26.371Z] CLI Version:   8.2.0
+[debug] [2020-06-02T22:16:26.371Z] Platform:      darwin
+[debug] [2020-06-02T22:16:26.371Z] Node Version:  v12.16.1
+[debug] [2020-06-02T22:16:26.376Z] Time:          Wed Jun 03 2020 03:46:26 GMT+0530 (India Standard Time)
+[debug] [2020-06-02T22:16:26.376Z] ----------------------------------------------------------------------
+[debug] [2020-06-02T22:16:26.376Z] 
+[debug] [2020-06-02T22:16:26.384Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-02T22:16:26.384Z] > authorizing via signed-in user
+[debug] [2020-06-02T22:16:26.384Z] [iam] checking project game-of-life-2e998 for permissions ["firebase.projects.get"]
+[debug] [2020-06-02T22:16:26.387Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/game-of-life-2e998:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-06-02T22:16:28.099Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 02 Jun 2020 22:16:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1363","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-02T22:16:28.100Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/game-of-life-2e998  
+ 
+[debug] [2020-06-02T22:16:28.712Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 02 Jun 2020 22:16:28 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from '/Users/amalshehu/Code/dojo/02 - Game of Life/amalshehu'...
+[info] 
+[debug] [2020-06-02T22:16:28.715Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/game-of-life-2e998/webApps/-/config  
+ 
+[debug] [2020-06-02T22:16:29.727Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 02 Jun 2020 22:16:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: ./build
+[info] ✔  hosting: Local server: http://localhost:5000
