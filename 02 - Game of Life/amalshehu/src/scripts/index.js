@@ -1,3 +1,13 @@
+import "../styles/index.scss"
+import p5 from "p5"
+
+let sketch = (s) => {
+  s.setup = () => setup(s)
+  s.draw = () => draw(s)
+}
+
+const P5 = new p5(sketch)
+
 function roundDim(val) {
   return Math.round(val)
 }
@@ -5,9 +15,8 @@ function roundDim(val) {
 const canvasDiv = document.getElementById("main")
 const width = roundDim(canvasDiv.offsetWidth)
 const height = roundDim(canvasDiv.offsetHeight)
-
 // const [width, height] = [1000, 1000]
-const [rows, columns] = [roundDim(height / 20), roundDim(width / 20)]
+const [rows, columns] = [roundDim(height / 10), roundDim(width / 10)]
 const speed = 60
 const cellWidth = roundDim(width / columns)
 const cellHeight = roundDim(height / rows)
@@ -33,7 +42,7 @@ function getNeighbours(i, j, m, n) {
     [i, j + 1],
     [i + 1, j - 1],
     [i + 1, j],
-    [i + 1, j + 1],
+    [i + 1, j + 1]
   ]
   return neighbours.filter((cellIdx) => isValidIndex(...cellIdx, m, n))
 }
@@ -47,19 +56,17 @@ function generateCell(c, x, y, i, j, s) {
     gridIdx: { i, j },
     shape: s,
     strength: 0,
-    neighbours: getNeighbours(i, j, rows, columns),
+    neighbours: getNeighbours(i, j, rows, columns)
   }
 }
 
 function drawCell(data) {
-  const { prevColor, color, location, shape } = data
+  const { prevColor, color, location } = data
   if (prevColor !== color) {
-    fill(colorMap[color])
-    window[shape](location.x, location.y, cellWidth, cellHeight, cellWidth / 10)
+    P5.fill(colorMap[color])
+    P5.rect(location.x, location.y, cellWidth, cellHeight, cellWidth / 10)
   }
 }
-
-//row
 
 function generateRow(y, n, idx) {
   return Array.from({ length: n }, (x, i) => i).map((j) =>
@@ -71,8 +78,6 @@ function drawRow(data) {
   data.map(drawCell)
 }
 
-//grid
-
 function generateGrid(m, n) {
   return Array.from({ length: m }, (x, i) => i).map((j) => {
     return generateRow(cellHeight * j, n, j)
@@ -82,8 +87,6 @@ function generateGrid(m, n) {
 function drawGrid(data) {
   data.map(drawRow)
 }
-
-//conway
 
 function isCellAlive(cellState) {
   return cellState.color !== "dead"
@@ -111,7 +114,7 @@ function conwayPrepareCell(cellState) {
   state[i][j] = {
     ...cellState,
     strength: aliveNeighbours,
-    nextColor: updateConwayColor(cellState.color, aliveNeighbours),
+    nextColor: updateConwayColor(cellState.color, aliveNeighbours)
   }
 }
 
@@ -120,7 +123,7 @@ function conwayUpdateCell(cellState) {
   state[i][j] = {
     ...cellState,
     prevColor: cellState.color,
-    color: cellState.nextColor,
+    color: cellState.nextColor
   }
 }
 
@@ -144,14 +147,14 @@ function makeAcron(x, y) {
     [x + 1, y + 3],
     [x, y + 4],
     [x, y + 5],
-    [x, y + 6],
+    [x, y + 6]
   ]
   acronArray.map((acron) => {
     const [i, j] = acron
     state[i][j] = {
       ...state[i][j],
       prevColor: state[i][j].color,
-      color: "alive",
+      color: "alive"
     }
   })
 }
@@ -166,19 +169,19 @@ makeAcron(roundDim(rows / 2), roundDim(columns / 2))
 function togglePlay() {
   isPaused = !isPaused
 }
-function setup() {
-  colorMap["alive"] = color("#673ab7")
-  colorMap["strong"] = color("#ff1e56")
-  colorMap["dead"] = color(40)
-  const canvas = createCanvas(width, height)
+function setup(p) {
+  colorMap["alive"] = p.color("#673ab7")
+  colorMap["strong"] = p.color("#ff1e56")
+  colorMap["dead"] = p.color(40)
+  const canvas = p.createCanvas(width, height)
   canvas.parent("main")
-  frameRate(speed)
-  stroke(40)
-  pixelDensity(5)
-  drawGrid(state)
+  // frameRate(speed)
+  // stroke(40)
+  // pixelDensity(5)
+  drawGrid(state, p)
 }
 
-function draw() {
+function draw(p) {
   if (!isPaused) {
     conwayTransformGrid(state)
     drawGrid(state)
@@ -187,8 +190,7 @@ function draw() {
       .toFixed(2)
       .toString()
     document.getElementById("generation").innerText = generation.toString()
-    document.getElementById("frameRate").innerText = window
-      .frameRate()
+    document.getElementById("frameRate").innerText = P5.frameRate()
       .toFixed(2)
       .toString()
   }
@@ -208,7 +210,7 @@ function mouseClicked(event) {
     state[i][j] = {
       ...state[i][j],
       prevColor: state[i][j].color,
-      color: state[i][j].color === "alive" ? "dead" : "alive",
+      color: state[i][j].color === "alive" ? "dead" : "alive"
     }
     drawGrid(state)
   }
